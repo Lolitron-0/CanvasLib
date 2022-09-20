@@ -1,6 +1,6 @@
 # CanvasLib
 
-This is the CanvasLib project.
+CanvasLib is a tiny c++ GLFW 2d graphics library for fast prototyping of some simulations/games/whatever. Inspired by JS canvas.
 
 # Building and installing
 
