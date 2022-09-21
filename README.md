@@ -6,10 +6,6 @@ CanvasLib is a tiny c++ GLFW 2d graphics library for fast prototyping of some si
 
 See the [BUILDING](BUILDING.md) document.
 
-# Contributing
-
-See the [CONTRIBUTING](CONTRIBUTING.md) document.
-
 # Licensing
 
 <!--
