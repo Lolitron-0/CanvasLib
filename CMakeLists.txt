@@ -16,26 +16,26 @@ include(cmake/variables.cmake)
 # ---- Declare library ----
 
 add_library(
-    CanvasLib_CanvasLib
+    ${CMAKE_PROJECT_NAME}
     source/CanvasLib.cpp
 )
-add_library(CanvasLib::CanvasLib ALIAS CanvasLib_CanvasLib)
+add_library(CanvasLib::CanvasLib ALIAS ${CMAKE_PROJECT_NAME})
 
 
 include(GenerateExportHeader)
 generate_export_header(
-    CanvasLib_CanvasLib
+    ${CMAKE_PROJECT_NAME}
     BASE_NAME CanvasLib
     EXPORT_FILE_NAME export/CanvasLib/CanvasLib_export.hpp
     CUSTOM_CONTENT_FROM_VARIABLE pragma_suppress_c4251
 )
 
 if(NOT BUILD_SHARED_LIBS)
-  target_compile_definitions(CanvasLib_CanvasLib PUBLIC CANVASLIB_STATIC_DEFINE)
+  target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC CANVASLIB_STATIC_DEFINE)
 endif()
 
 set_target_properties(
-    CanvasLib_CanvasLib PROPERTIES
+    ${CMAKE_PROJECT_NAME} PROPERTIES
     CXX_VISIBILITY_PRESET hidden
     VISIBILITY_INLINES_HIDDEN YES
     VERSION "${PROJECT_VERSION}"
@@ -45,18 +45,18 @@ set_target_properties(
 )
 
 target_include_directories(
-    CanvasLib_CanvasLib ${warning_guard}
+    ${CMAKE_PROJECT_NAME} ${warning_guard}
     PUBLIC
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
 )
 
 target_include_directories(
-    CanvasLib_CanvasLib SYSTEM
+    ${CMAKE_PROJECT_NAME} SYSTEM
     PUBLIC
     "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>"
 )
 
-target_compile_features(CanvasLib_CanvasLib PUBLIC cxx_std_17)
+target_compile_features(${CMAKE_PROJECT_NAME} PUBLIC cxx_std_17)
 
 # ---- Tests ----
 
@@ -76,11 +76,26 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-#find_package(glfw3 CONFIG REQUIRED)
+find_dependency(glfw3 CONFIG REQUIRED)
 find_dependency(OpenGL REQUIRED)
 
-target_link_libraries(CanvasLib_CanvasLib ${CMAKE_SOURCE_DIR}/GLFW/glfw3.lib)
-target_link_libraries(CanvasLib_CanvasLib OpenGL::GL)
+target_link_libraries(${CMAKE_PROJECT_NAME} ${CMAKE_SOURCE_DIR}/GLFW/glfw3.lib)
+target_link_libraries(${CMAKE_PROJECT_NAME} OpenGL::GL)
+
+# ---- Package ----
+
+#include(CMakePackageConfigHelpers)
+#
+#configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+#  "${CMAKE_CURRENT_BINARY_DIR}/CanvasLibConfig.cmake"
+#  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/CanvasLib
+#)
+#
+#install(FILES
+#          "${CMAKE_CURRENT_BINARY_DIR}/CanvasLibConfig.cmake"
+#          "${CMAKE_CURRENT_BINARY_DIR}/CanvasLibConfigVersion.cmake"
+#        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/CanvasLib
+#)
 
 # ---- Install rules ----
 
@@ -89,7 +104,7 @@ if(NOT CMAKE_SKIP_INSTALL_RULES)
 endif()
 
 # ---- Developer mode ----
-
+set(CanvasLib_DEVELOPER_MODE)
 if(NOT CanvasLib_DEVELOPER_MODE)
   return()
 elseif(NOT PROJECT_IS_TOP_LEVEL)

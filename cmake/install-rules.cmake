@@ -17,7 +17,7 @@ install(
 )
 
 install(
-    TARGETS CanvasLib_CanvasLib
+    TARGETS ${CMAKE_PROJECT_NAME}
     EXPORT CanvasLibTargets
     RUNTIME #
     COMPONENT CanvasLib_Runtime
