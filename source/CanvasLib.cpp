@@ -1,13 +1,11 @@
 #include <string>
+#include <iostream>
+#include <../GLFW/glfw3.h>
 
 #include "CanvasLib/CanvasLib.hpp"
 
 Canvas::Canvas()
-    : m_name {"CanvasLib"}
 {
-}
-
-auto Canvas::name() const -> const char*
-{
-  return m_name.c_str();
+    glfwInit();
+    std::cout<<"Bruh,222 i'm created"<<std::endl;
 }

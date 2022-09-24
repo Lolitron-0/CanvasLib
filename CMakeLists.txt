@@ -5,7 +5,7 @@ include(cmake/prelude.cmake)
 project(
     CanvasLib
     VERSION 0.1.0
-    DESCRIPTION "Tiny graphics GLFW lib to fast prototyping"
+    DESCRIPTION "Tiny graphics GLFW lib for fast prototyping"
     HOMEPAGE_URL "https://example.com/"
     LANGUAGES CXX
 )
@@ -21,7 +21,6 @@ add_library(
 )
 add_library(CanvasLib::CanvasLib ALIAS CanvasLib_CanvasLib)
 
-find_package(glfw3 3.3 REQUIRED)
 
 include(GenerateExportHeader)
 generate_export_header(
@@ -58,6 +57,30 @@ target_include_directories(
 )
 
 target_compile_features(CanvasLib_CanvasLib PUBLIC cxx_std_17)
+
+# ---- Tests ----
+
+if(CANVAS_BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(test)
+endif()
+
+if(CANVAS_BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
+
+# ---- Dependencies ----
+include(CMakeFindDependencyMacro)
+
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+
+#find_package(glfw3 CONFIG REQUIRED)
+find_dependency(OpenGL REQUIRED)
+
+target_link_libraries(CanvasLib_CanvasLib ${CMAKE_SOURCE_DIR}/GLFW/glfw3.lib)
+target_link_libraries(CanvasLib_CanvasLib OpenGL::GL)
 
 # ---- Install rules ----
 

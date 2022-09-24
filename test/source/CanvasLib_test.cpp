@@ -4,7 +4,7 @@
 
 auto main() -> int
 {
-  auto const exported = exported_class {};
+  auto canvas = Canvas();
 
-  return std::string("CanvasLib") == exported.name() ? 0 : 1;
+  return 0;
 }
