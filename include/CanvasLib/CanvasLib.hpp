@@ -3,6 +3,7 @@
 #include <string>
 
 #include "CanvasLib/CanvasLib_export.hpp"
+#include <GLFW/glfw3.h>
 
 
 /**
@@ -16,7 +17,9 @@ public:
    */
   Canvas();
 
+  ~Canvas();
 
 private:
   CANVASLIB_SUPPRESS_C4251
+  GLFWwindow* mpWindowHandle;
 };
