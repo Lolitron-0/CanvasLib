@@ -18,6 +18,7 @@ include(cmake/variables.cmake)
 add_library(
     ${CMAKE_PROJECT_NAME}
     source/CanvasLib.cpp
+    source/Color.cpp
 )
 add_library(CanvasLib::CanvasLib ALIAS ${CMAKE_PROJECT_NAME})
 
