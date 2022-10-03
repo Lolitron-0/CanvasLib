@@ -62,7 +62,7 @@ This project exports a CMake package to be used with the [`find_package`][3]
 command of CMake:
 
 * Package name: `CanvasLib`
-* Target name: `CanvasLib::CanvasLib`
+* Target name: `CanvasLib`
 
 Example usage:
 
@@ -72,7 +72,7 @@ find_package(CanvasLib REQUIRED)
 # project_target is a target created in the consuming project
 target_link_libraries(
     project_target PRIVATE
-    CanvasLib::CanvasLib
+    CanvasLib
 )
 ```
 
