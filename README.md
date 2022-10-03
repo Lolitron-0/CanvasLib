@@ -84,6 +84,8 @@ target_link_libraries(
 [2]: https://cmake.org/cmake/help/latest/manual/cmake.1.html#install-a-project
 [3]: https://cmake.org/cmake/help/latest/command/find_package.html
 
+### Docs
+Open index.html in docs/docs/html directory in browser.
 <!--
 Please go to https://choosealicense.com/licenses/ and choose a license that
 fits your needs. The recommended license for a project of this type is the
