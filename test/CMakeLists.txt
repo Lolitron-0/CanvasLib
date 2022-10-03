@@ -23,8 +23,10 @@ if(PROJECT_IS_TOP_LEVEL)
 endif()
 
 
-target_link_libraries(CanvasLib_test ${CMAKE_CURRENT_LIST_DIR}/../build/libCanvasLib.a)
-#USE PACKAGES IN RELEASE VERSION DUMB
+#target_link_libraries(CanvasLib_test ${CMAKE_CURRENT_LIST_DIR}/../build/libCanvasLib.a)
+find_package(CanvasLib REQUIRED)
+target_link_libraries(CanvasLib_test CanvasLib)
+#USE PACKAGES IN RELEASE VERSION DUMB (it's for me not for u)
 
 find_package(glfw3 CONFIG REQUIRED)
 target_link_libraries(CanvasLib_test glfw)

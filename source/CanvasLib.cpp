@@ -28,6 +28,8 @@ namespace canv {
     {
         while(!glfwWindowShouldClose(mpWindowHandle.get())){
             glfwPollEvents();
+            glClearColor(0,0,0,0);
+            glClear(GL_COLOR_BUFFER_BIT);
 
             mUpdateFunction();
             glfwSwapBuffers(mpWindowHandle.get());
@@ -100,6 +102,7 @@ namespace canv {
 
     Canvas::~Canvas()
     {
+        mpWindowHandle.reset();
         glfwTerminate();
     }
 

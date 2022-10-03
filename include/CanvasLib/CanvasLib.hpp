@@ -10,6 +10,10 @@
 #include "CanvasLib/Vec2.hpp"
 #include <GLFW/glfw3.h>
 
+
+/**
+ * The main namespace of the library (to keep my Vec2/Color away from your Vec2/Color)
+ */
 namespace CANVASLIB_EXPORT canv {
 
 
