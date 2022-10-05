@@ -10,7 +10,7 @@ set(package CanvasLib)
 
 install(
     DIRECTORY
-    include/
+    include/CanvasLib/
     "${PROJECT_BINARY_DIR}/export/"
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
     COMPONENT CanvasLib_Development
