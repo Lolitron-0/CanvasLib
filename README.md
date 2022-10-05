@@ -71,14 +71,19 @@ command of CMake:
 Example usage:
 
 ```cmake
+
 find_package(CanvasLib REQUIRED)
 # Declare the imported target as a build requirement using PRIVATE, where
 # project_target is a target created in the consuming project
-target_link_libraries(
-    project_target PRIVATE
-    CanvasLib
-)
+target_link_libraries(project_target CanvasLib PRIVATE)
+
+find_package(glfw3 CONFIG REQUIRED)
+target_link_libraries(project_target glfw)
+
+find_package(OpenGL REQUIRED)
+target_link_libraries(project_target OpenGL::GL)
 ```
+NOTE: CanvasLib finding and linking is before glfw and opengl lines
 
 [1]: https://cmake.org/download/
 [2]: https://cmake.org/cmake/help/latest/manual/cmake.1.html#install-a-project
