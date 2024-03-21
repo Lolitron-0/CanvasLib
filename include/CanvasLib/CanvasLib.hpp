@@ -4,12 +4,12 @@
 #include <functional>
 #include <memory>
 
-#include "CanvasLib/CanvasLib_export.hpp"
 #include "CanvasLib/Color.hpp"
 #include "CanvasLib/Colors.hpp"
 #include "CanvasLib/Vec2.hpp"
 #include <GLFW/glfw3.h>
 
+#define CANVASLIB_EXPORT
 
 /**
  * The main namespace of the library (to keep my Vec2/Color away from your Vec2/Color)
@@ -31,11 +31,16 @@ public:
         Fill,
         Outline
     };
-public:
+
+    Canvas(const Canvas&) = default;
+    Canvas(Canvas&&) = default;
+    auto operator=(const Canvas&) -> Canvas& = default;
+    auto operator=(Canvas&&) -> Canvas& = default;
+
     /**
      * @brief Initializes the name field to the name of the project
      */
-    Canvas(int width, int height);
+    Canvas(int32_t width, int32_t height);
 
     /**
      * @brief starts the main window cycle IN MAIN THREAD
@@ -56,7 +61,7 @@ public:
     * @brief draws an ellipse, if u want circle just pass same x and y radius
     * for triangle use segments = 3
     */
-    void drawEllipse(float cx, float cy, float xr, float yr, int segments = 40);
+    void drawEllipse(float cx, float cy, float rx, float ry, int segments = 40);
 
     /**
     * @brief sets the fill color
@@ -71,19 +76,16 @@ public:
     ~Canvas();
 
 private:
-    float xToGl(float x) const;
-    float yToGl(float y) const;
+    [[nodiscard]] auto _xToGl(float x) const -> float;
+    [[nodiscard]] auto _yToGl(float y) const -> float;
 
-    void applyColorGl();
+    void applyColorGl() const;
 
-
-private:
-    CANVASLIB_SUPPRESS_C4251
-    std::shared_ptr<GLFWwindow> mpWindowHandle;
-    std::function<void(void)> mUpdateFunction;
-    Color mFillColor;
-    GLenum mDrawMode;
-    Vec2<int> mSize;
+    std::shared_ptr<GLFWwindow> m_WindowHandle;
+    std::function<void(void)> m_UpdateFunction;
+    Color m_FillColor;
+    GLenum m_DrawMode;
+    Vec2<int32_t> m_Size;
 };
 
 }

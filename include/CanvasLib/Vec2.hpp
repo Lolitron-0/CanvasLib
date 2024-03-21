@@ -1,79 +1,68 @@
-#ifndef CANVAS_VEC2_H
-#define CANVAS_VEC2_H
-
-#include "CanvasLib/CanvasLib_export.hpp"
-#include <iostream>
+#pragma once
 #include <cmath>
+#include <iostream>
 
-namespace canv {
+namespace canv
+{
 
 /**
  * @brief Utility Vec2 class with x, y coordinates.
- * @tparam CoordType is type of x, y fields (float/int/double most often but can be used as tuple with number-convertible types (why?))
+ * @tparam CoordType is type of x, y fields 
  */
-template<typename CoordType>
-class CANVASLIB_EXPORT Vec2
+template <typename CoordType>
+class Vec2
 {
 public:
     /**
      * @brief creates Vec2 with 0, 0 coordinates
      */
     Vec2()
-        :x(0), y(0)
-    {}
-    Vec2(CoordType x, CoordType y)
-        :x(x), y(y)
-    {}
+        : X(0),
+          Y(0)
+    {
+    }
 
-    Vec2(const Vec2& other) = default;
+    Vec2(CoordType x, CoordType y) // NOLINT
+        : X(x),
+          Y(y)
+    {
+    }
 
     /**
      * @brief returns distance^2 to other point
      */
-    template<typename U>
-    auto distToSquared(const Vec2<U>& other){
-        return (x-other.x) * (x-other.x) + (y-other.y) * (y-other.y);
+    template <typename U>
+    auto DistToSquared(const Vec2<U>& other)
+    {
+        return (X - other.X) * (X - other.X) + (Y - other.Y) * (Y - other.Y);
     }
 
     /**
      * @brief returns distance to other point
      */
-    template<typename U>
-    auto distTo(const Vec2<U>& other){
-        return std::sqrt(distToSquared(other));
+    template <typename U>
+    auto DistTo(const Vec2<U>& other)
+    {
+        return std::sqrt(DistToSquared(other));
     }
 
-#pragma region OPERATORS
-    template<typename U>
-    Vec2<CoordType>& operator+=(const Vec2<U>& other){
-        x+=other.x;
-        y+=other.y;
+    template <typename U>
+    auto operator+=(const Vec2<U>& other) -> Vec2<CoordType>&
+    {
+        X += other.X;
+        Y += other.Y;
         return *this;
     }
-    template<typename U>
-    Vec2<CoordType>& operator-=(const Vec2<U>& other){
-        x-=other.x;
-        y-=other.y;
+    template <typename U>
+    auto operator-=(const Vec2<U>& other) -> Vec2<CoordType>&
+    {
+        X -= other.X;
+        Y -= other.Y;
         return *this;
     }
-    Vec2<CoordType>& operator=(const Vec2<CoordType>& other){
-        Vec2 tmp(other);
-        std::swap(tmp.x, this->x);
-        std::swap(tmp.y, this->y);
-        return *this;
-    }
-    Vec2<CoordType>& operator=(const Vec2<CoordType>&& other){
-        std::swap(other.x, this->x);
-        std::swap(other.y, this->y);
-        return *this;
-    }
-#pragma endregion
 
-public:
-    CoordType x;
-    CoordType y;
+    CoordType X;
+    CoordType Y;
 };
 
-} // namespace canvas
-
-#endif // CANVAS_VEC2_H
+} // namespace canv

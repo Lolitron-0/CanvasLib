@@ -1,87 +1,102 @@
-#include <string>
-#include <iostream>
-#include <vector>
-#include <thread>
 #include <chrono>
+#include <iostream>
+#include <string>
+#include <thread>
+#include <vector>
 
 #include "CanvasLib/CanvasLib.hpp"
 
 using namespace std::chrono_literals;
 
 class Particle;
-typedef std::shared_ptr<Particle> ParticlePtr;
-typedef std::vector<ParticlePtr>ParticleSystem;
+using ParticlePtr = std::shared_ptr<Particle>;
+using ParticleSystem = std::vector<ParticlePtr>;
 
-class Particle {
+class Particle
+{
 public:
-
     Particle(const canv::Color& color, float mass, canv::Vec2<float> coords)
-        :mCoords(coords), mColor(color), mMass(mass)
+        : m_Coords{ coords },
+          m_Color(color),
+          m_Mass(mass)
     {
-
     }
 
-    auto update(canv::Canvas& canvas,
-                const ParticleSystem& system) -> void {
-        rule(system);
-        mCoords += mVelocity;
+    auto Update(canv::Canvas& canvas, const ParticleSystem& system) -> void
+    {
+        _rule(system);
+        m_Coords += m_Velocity;
 
-        canvas.setFillColor(mColor);
-        canvas.drawEllipse(mCoords.x, mCoords.y, 20, 20);
+        canvas.setFillColor(m_Color);
+        canvas.drawEllipse(m_Coords.X, m_Coords.Y, 20, 20);
     }
 
-    auto applyImpulse(const canv::Vec2<float>& imp)-> void {
-        mVelocity += imp;
+    auto ApplyImpulse(const canv::Vec2<float>& imp) -> void
+    {
+        m_Velocity += imp;
     }
 
 private:
-    auto rule(const ParticleSystem& others) -> void {
+    auto _rule(const ParticleSystem& others) -> void
+    {
 
-        for(const ParticlePtr &particle : others) {
-                auto d = round(mCoords.distToSquared(particle->mCoords) * 1000)/1000.;
-                if((int)d!=0){ //if it's not *this
-                auto coeff = mMass*particle->mMass*0.0001/d; // Newton smell bebra
-                auto dx = particle->mCoords.x - mCoords.x;
-                auto dy = particle->mCoords.y - mCoords.y;
+        for (const ParticlePtr& particle : others)
+        {
+            float d =
+                roundf(m_Coords.DistToSquared(particle->m_Coords) * 1000.F) /
+                1000.F;
+            if (static_cast<int>(d) != 0)
+            { // if it's not *this
+                auto coeff = m_Mass * particle->m_Mass * 0.0001F /
+                             d; // Newton smell bebra
+                auto dx = particle->m_Coords.X - m_Coords.X;
+                auto dy = particle->m_Coords.Y - m_Coords.Y;
 
-                mVelocity.x += coeff * dx / mMass; // Newton smell bebra 2.0
-                mVelocity.y += coeff * dy / mMass;
+                m_Velocity.X += coeff * dx / m_Mass; // Newton smell bebra 2.0
+                m_Velocity.Y += coeff * dy / m_Mass;
             }
         }
     }
 
-    float mMass;
-    canv::Color mColor;
-    canv::Vec2<float> mCoords;
-    canv::Vec2<float> mVelocity {0,0};
+    float m_Mass;
+    canv::Color m_Color;
+    canv::Vec2<float> m_Coords;
+    canv::Vec2<float> m_Velocity{ 0, 0 };
 };
 
-
+const auto seed{ time(nullptr) };
 
 auto main() -> int
 {
-    srand(time(0));
-    auto canvas = canv::Canvas(1000, 800);
+    srand(seed);
+
+    auto canvas{ canv::Canvas(1000, 800) };
     ParticleSystem system;
 
-    system.push_back(std::make_shared<Particle>(canv::Colors::lightBlue, 1, canv::Vec2<float>(500,10)));
-    system.back()->applyImpulse({1,0});
-    system.push_back(std::make_shared<Particle>(canv::Colors::green, 0.1, canv::Vec2<float>(600,300)));
-    system.back()->applyImpulse({3,3});
-    system.push_back(std::make_shared<Particle>(canv::Colors::red,2, canv::Vec2<float>(350,550)));
-    system.back()->applyImpulse({-2,0});
-    system.push_back(std::make_shared<Particle>(canv::Colors::white,10, canv::Vec2<float>(500,500)));
-    system.back()->applyImpulse({5,0});
-    system.push_back(std::make_shared<Particle>(canv::Colors::blue,6, canv::Vec2<float>(400,400)));
-    system.back()->applyImpulse({0,5});
-    system.push_back(std::make_shared<Particle>(canv::Colors::grey,100000, canv::Vec2<float>(500,400)));
+    system.push_back(std::make_shared<Particle>(canv::Colors::lightBlue, 1,
+                                                canv::Vec2<float>(500, 10)));
+    system.back()->ApplyImpulse({ 1, 0 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::green, 0.1,
+                                                canv::Vec2<float>(600, 300)));
+    system.back()->ApplyImpulse({ 3, 3 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::red, 2,
+                                                canv::Vec2<float>(350, 550)));
+    system.back()->ApplyImpulse({ -2, 0 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::white, 10,
+                                                canv::Vec2<float>(500, 500)));
+    system.back()->ApplyImpulse({ 5, 0 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::blue, 6,
+                                                canv::Vec2<float>(400, 400)));
+    system.back()->ApplyImpulse({ 0, 5 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::grey, 100000,
+                                                canv::Vec2<float>(500, 400)));
 
-    canvas.setUpdateFunction([&canvas, &system](){
-        std::for_each(system.begin(), system.end(), [&](ParticlePtr& el){
-            el->update(canvas, system);
+    canvas.setUpdateFunction(
+        [&canvas, &system]()
+        {
+            std::for_each(system.begin(), system.end(),
+                          [&](ParticlePtr& el) { el->Update(canvas, system); });
         });
-        std::this_thread::sleep_for(1ms);
-    });
     canvas.start();
 
     return 0;

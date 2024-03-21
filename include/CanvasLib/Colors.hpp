@@ -1,11 +1,10 @@
 #ifndef CANV_COLORS_HPP
 #define CANV_COLORS_HPP
 #include "CanvasLib/Color.hpp"
-#include "CanvasLib/CanvasLib_export.hpp"
 
 namespace canv {
 
-class CANVASLIB_EXPORT Colors {
+class Colors {
 public:
     static const Color white;
     static const Color black;

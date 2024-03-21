@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/niten/dev/CanvasLib/build",
+  "command": "/run/current-system/sw/bin/clang++ -DCANVASLIB_STATIC_DEFINE -I/home/niten/dev/CanvasLib/include -isystem /home/niten/dev/CanvasLib/build/export -isystem /nix/store/hcpm3ki5p2aznfjpw53wfqzpi5rw6i8r-glfw-3.3.10/include -isystem /nix/store/lrzk70w2f2m9zkdbyzz5rnr503pl3gkq-libGL-1.7.0-dev/include -g -o CMakeFiles/CanvasLib.dir/source/Color.cpp.o -c /home/niten/dev/CanvasLib/source/Color.cpp",
+  "file": "/home/niten/dev/CanvasLib/source/Color.cpp",
+  "output": "CMakeFiles/CanvasLib.dir/source/Color.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/CanvasLib/build",
+  "command": "/run/current-system/sw/bin/clang++ -DCANVASLIB_STATIC_DEFINE -I/home/niten/dev/CanvasLib/include -isystem /home/niten/dev/CanvasLib/build/export -isystem /nix/store/hcpm3ki5p2aznfjpw53wfqzpi5rw6i8r-glfw-3.3.10/include -isystem /nix/store/lrzk70w2f2m9zkdbyzz5rnr503pl3gkq-libGL-1.7.0-dev/include -g -o CMakeFiles/CanvasLib.dir/source/Colors.cpp.o -c /home/niten/dev/CanvasLib/source/Colors.cpp",
+  "file": "/home/niten/dev/CanvasLib/source/Colors.cpp",
+  "output": "CMakeFiles/CanvasLib.dir/source/Colors.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/CanvasLib/build",
+  "command": "/run/current-system/sw/bin/clang++ -DCANVASLIB_STATIC_DEFINE -I/home/niten/dev/CanvasLib/include -isystem /home/niten/dev/CanvasLib/build/export -isystem /nix/store/hcpm3ki5p2aznfjpw53wfqzpi5rw6i8r-glfw-3.3.10/include -isystem /nix/store/lrzk70w2f2m9zkdbyzz5rnr503pl3gkq-libGL-1.7.0-dev/include -g -o CMakeFiles/CanvasLib.dir/source/CanvasLib.cpp.o -c /home/niten/dev/CanvasLib/source/CanvasLib.cpp",
+  "file": "/home/niten/dev/CanvasLib/source/CanvasLib.cpp",
+  "output": "CMakeFiles/CanvasLib.dir/source/CanvasLib.cpp.o"
+},
+{
+  "directory": "/home/niten/dev/CanvasLib/build",
+  "command": "/run/current-system/sw/bin/clang++ -DCANVASLIB_STATIC_DEFINE -I/home/niten/dev/CanvasLib/include -isystem /home/niten/dev/CanvasLib/build/export -isystem /nix/store/hcpm3ki5p2aznfjpw53wfqzpi5rw6i8r-glfw-3.3.10/include -isystem /nix/store/lrzk70w2f2m9zkdbyzz5rnr503pl3gkq-libGL-1.7.0-dev/include -g -o test/CMakeFiles/CanvasLib_test.dir/source/CanvasLib_test.cpp.o -c /home/niten/dev/CanvasLib/test/source/CanvasLib_test.cpp",
+  "file": "/home/niten/dev/CanvasLib/test/source/CanvasLib_test.cpp",
+  "output": "test/CMakeFiles/CanvasLib_test.dir/source/CanvasLib_test.cpp.o"
+}
+]
