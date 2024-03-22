@@ -43,7 +43,7 @@ public:
     /**
      * @brief Initializes the name field to the name of the project
      */
-    Canvas(int32_t width, int32_t height);
+    Canvas(uint32_t width, uint32_t height);
     ~Canvas();
 
     /**
@@ -87,7 +87,7 @@ private:
     std::function<void(void)> m_UpdateFunction;
     Color m_FillColor;
     GLenum m_DrawMode;
-    Vec2<int32_t> m_Size;
+    Vec2<uint32_t> m_Size;
 };
 
 }

@@ -7,7 +7,7 @@
 namespace canv
 {
 
-Canvas::Canvas(int32_t width, int32_t height)
+Canvas::Canvas(uint32_t width, uint32_t height)
     : m_Size(width, height),
       m_FillColor(255, 255, 255),
       m_DrawMode(GL_TRIANGLE_FAN)
@@ -19,7 +19,8 @@ Canvas::Canvas(int32_t width, int32_t height)
     Ra::SetLogCallback([](const auto& msg)
                        { std::cout << "[RA LOG]: " << msg << std::endl; });
     Ra::Renderer::SetAPI(Ra::RendererAPI::API::OpenGL);
-    m_Window = std::make_unique<Window>(WindowProps{});
+    m_Window =
+        std::make_unique<Window>(WindowProps{ "Canvas", { width, height } });
     glfwSetErrorCallback([](int /*errCode*/, const char* message)
                          { std::cerr << message << std::endl; });
     glOrtho(0, 1., 1., 0, -1, 1);
@@ -27,11 +28,13 @@ Canvas::Canvas(int32_t width, int32_t height)
     setUpdateFunction([]() {});
 
     Ra::Renderer::Init();
+    Ra::Renderer::ResizeViewport(
+        { m_Window->GetWidth(), m_Window->GetHeight() });
 }
 
 void Canvas::start()
 {
-	PROFILER_SCOPE("Main cycle");
+    PROFILER_SCOPE("Main cycle");
     while (!m_Window->ShouldClose())
     {
         glfwPollEvents();

@@ -14,7 +14,8 @@
   -readability-magic-numbers,
   -readability-identifier-length
   -readability-implicit-bool-conversion
-  -readability-redundant-access-specifiers"
+  -readability-redundant-access-specifiers
+  -bugprone-easily-swappable-parameters"
 WarningsAsErrors: ''
 CheckOptions:
   - key: 'bugprone-argument-comment.StrictMode'
