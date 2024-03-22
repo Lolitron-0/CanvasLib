@@ -1,0 +1,3 @@
+[submodule "thirdparty/RenderingAbstraction"]
+	path = thirdparty/RenderingAbstraction
+	url = https://github.com/Lolitron-0/RenderingAbstraction

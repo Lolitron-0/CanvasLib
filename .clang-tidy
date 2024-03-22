@@ -13,7 +13,8 @@
   -cppcoreguidelines-avoid-magic-numbers,
   -readability-magic-numbers,
   -readability-identifier-length
-  -readability-implicit-bool-conversion"
+  -readability-implicit-bool-conversion
+  -readability-redundant-access-specifiers"
 WarningsAsErrors: ''
 CheckOptions:
   - key: 'bugprone-argument-comment.StrictMode'

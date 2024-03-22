@@ -10,7 +10,8 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "runInTerminal": true
+            "runInTerminal": true,
+			"sudo": true
         }
 
 

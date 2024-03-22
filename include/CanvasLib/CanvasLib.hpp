@@ -4,9 +4,12 @@
 #include <functional>
 #include <memory>
 
+#include <RenderAbstraction.hpp>
+#include <glad/glad.h>
 #include "CanvasLib/Color.hpp"
 #include "CanvasLib/Colors.hpp"
 #include "CanvasLib/Vec2.hpp"
+#include "CanvasLib/Window.hpp"
 #include <GLFW/glfw3.h>
 
 #define CANVASLIB_EXPORT
@@ -32,15 +35,16 @@ public:
         Outline
     };
 
-    Canvas(const Canvas&) = default;
-    Canvas(Canvas&&) = default;
-    auto operator=(const Canvas&) -> Canvas& = default;
-    auto operator=(Canvas&&) -> Canvas& = default;
+    Canvas(const Canvas&) = delete;
+    Canvas(Canvas&&) = delete;
+    auto operator=(const Canvas&) -> Canvas& = delete;
+    auto operator=(Canvas&&) -> Canvas& = delete;
 
     /**
      * @brief Initializes the name field to the name of the project
      */
     Canvas(int32_t width, int32_t height);
+    ~Canvas();
 
     /**
      * @brief starts the main window cycle IN MAIN THREAD
@@ -73,15 +77,13 @@ public:
     */
     void setDrawMode(const DrawMode& drawMode);
 
-    ~Canvas();
-
 private:
     [[nodiscard]] auto _xToGl(float x) const -> float;
     [[nodiscard]] auto _yToGl(float y) const -> float;
 
     void applyColorGl() const;
 
-    std::shared_ptr<GLFWwindow> m_WindowHandle;
+	std::unique_ptr<Window> m_Window;
     std::function<void(void)> m_UpdateFunction;
     Color m_FillColor;
     GLenum m_DrawMode;

@@ -10,3 +10,5 @@ prefix/
 CMakeLists.txt.user
 CMakeUserPresets.json
 *.autosave
+*.lock
+ProfilingResult*

@@ -17,8 +17,8 @@ class Particle
 public:
     Particle(const canv::Color& color, float mass, canv::Vec2<float> coords)
         : m_Coords{ coords },
-          m_Color(color),
-          m_Mass(mass)
+          m_Color{ color },
+          m_Mass{ mass }
     {
     }
 
@@ -70,7 +70,7 @@ auto main() -> int
 {
     srand(seed);
 
-    auto canvas{ canv::Canvas(1000, 800) };
+    canv::Canvas canvas{ 1000, 800 };
     ParticleSystem system;
 
     system.push_back(std::make_shared<Particle>(canv::Colors::lightBlue, 1,

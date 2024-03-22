@@ -12,28 +12,34 @@ Canvas::Canvas(int32_t width, int32_t height)
       m_FillColor(255, 255, 255),
       m_DrawMode(GL_TRIANGLE_FAN)
 {
-    glfwInit();
-    this->m_WindowHandle.reset(
-        glfwCreateWindow(width, height, "", nullptr, nullptr),   // new value
-        [](GLFWwindow* ptr) { return glfwDestroyWindow(ptr); }); // deleter
-    glfwMakeContextCurrent(m_WindowHandle.get());
+    PROFILER_BEGIN_SESSION("CanvasLib session",
+                           "ProfilingResult-CanvasLib.json");
+    Ra::SetErrorCallback([](const auto& msg)
+                         { std::cout << msg << std::endl; });
+    Ra::SetLogCallback([](const auto& msg)
+                       { std::cout << "[RA LOG]: " << msg << std::endl; });
+    Ra::Renderer::SetAPI(Ra::RendererAPI::API::OpenGL);
+    m_Window = std::make_unique<Window>(WindowProps{});
     glfwSetErrorCallback([](int /*errCode*/, const char* message)
                          { std::cerr << message << std::endl; });
     glOrtho(0, 1., 1., 0, -1, 1);
 
     setUpdateFunction([]() {});
+
+    Ra::Renderer::Init();
 }
 
 void Canvas::start()
 {
-    while (!glfwWindowShouldClose(m_WindowHandle.get()))
+	PROFILER_SCOPE("Main cycle");
+    while (!m_Window->ShouldClose())
     {
         glfwPollEvents();
         glClearColor(0, 0, 0, 0);
         glClear(GL_COLOR_BUFFER_BIT);
 
         m_UpdateFunction();
-        glfwSwapBuffers(m_WindowHandle.get());
+        m_Window->OnUpdate();
     }
 }
 
@@ -104,8 +110,9 @@ void Canvas::setDrawMode(const DrawMode& drawMode)
 
 Canvas::~Canvas()
 {
-    m_WindowHandle.reset();
+    m_Window.reset(nullptr);
     glfwTerminate();
+    PROFILER_END_SESSION();
 }
 
 auto Canvas::_xToGl(float x) const -> float
