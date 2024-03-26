@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include <cstdint>
 #include <iostream>
 
 namespace canv
@@ -7,7 +8,7 @@ namespace canv
 
 /**
  * @brief Utility Vec2 class with x, y coordinates.
- * @tparam CoordType is type of x, y fields 
+ * @tparam CoordType is type of x, y fields
  */
 template <typename CoordType>
 class Vec2
@@ -46,6 +47,11 @@ public:
         return std::sqrt(DistToSquared(other));
     }
 
+    auto AsTuple() const -> std::tuple<CoordType, CoordType>
+    {
+        return std::make_tuple(X, Y);
+    }
+
     template <typename U>
     auto operator+=(const Vec2<U>& other) -> Vec2<CoordType>&
     {
@@ -64,5 +70,10 @@ public:
     CoordType X;
     CoordType Y;
 };
+
+using Vec2f = Vec2<float>;
+using Vec2d = Vec2<double>;
+using Vec2i = Vec2<int32_t>;
+using Vec2ui = Vec2<uint32_t>;
 
 } // namespace canv

@@ -18,18 +18,21 @@ Canvas::Canvas(uint32_t width, uint32_t height)
                          { std::cout << msg << std::endl; });
     Ra::SetLogCallback([](const auto& msg)
                        { std::cout << "[RA LOG]: " << msg << std::endl; });
-    Ra::Renderer::SetAPI(Ra::RendererAPI::API::OpenGL);
+	Ra::Init<Ra::Renderer2D>(Ra::RendererAPI::API::OpenGL);
+
     m_Window =
-        std::make_unique<Window>(WindowProps{ "Canvas", { width, height } });
+
+        std::make_unique<Ra::Window>(Ra::WindowProps{ "Canvas", { width, height } });
+
     glfwSetErrorCallback([](int /*errCode*/, const char* message)
                          { std::cerr << message << std::endl; });
-    glOrtho(0, 1., 1., 0, -1, 1);
+
+    glOrtho(-1, 1., 1., -1, -1, 1);
 
     setUpdateFunction([]() {});
 
-    Ra::Renderer::Init();
-    Ra::Renderer::ResizeViewport(
-        { m_Window->GetWidth(), m_Window->GetHeight() });
+    // Ra::Renderer2D::ResizeViewport(
+    //     { m_Window->GetWidth(), m_Window->GetHeight() });
 }
 
 void Canvas::start()
@@ -41,7 +44,8 @@ void Canvas::start()
         glClearColor(0, 0, 0, 0);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        m_UpdateFunction();
+        // m_UpdateFunction();
+		Ra::Renderer2D::DrawQuad({0,0},)
         m_Window->OnUpdate();
     }
 }
@@ -67,8 +71,7 @@ void Canvas::drawEllipse(float cx, float cy, float rx, float ry, int segments)
 {
     cx = _xToGl(cx);
     cy = _yToGl(cy);
-    rx = _xToGl(rx);
-    ry = _yToGl(ry);
+    std::tie(rx, ry) = _normalizeSizeGl({ rx, ry }).AsTuple();
 
     float theta = 2 * 3.1415926F / static_cast<float>(segments);
     float c = cosf(theta);
@@ -120,12 +123,17 @@ Canvas::~Canvas()
 
 auto Canvas::_xToGl(float x) const -> float
 {
-    return x / m_Size.X;
+    return -1 + 2 * (x / m_Size.X);
 }
 
 auto Canvas::_yToGl(float y) const -> float
 {
-    return y / m_Size.Y;
+    return -1 + 2 * (y / m_Size.Y);
+}
+
+auto Canvas::_normalizeSizeGl(const Vec2f& size) const -> Vec2f
+{
+    return { 2 * size.X / m_Size.X, 2 * size.Y / m_Size.Y };
 }
 
 void Canvas::applyColorGl() const

@@ -28,8 +28,7 @@ public:
         m_Coords += m_Velocity;
 
         canvas.setFillColor(m_Color);
-        canvas.drawEllipse(m_Coords.X, m_Coords.Y, 20, 20);
-    }
+        canvas.drawEllipse(m_Coords.X, m_Coords.Y, 20, 20); }
 
     auto ApplyImpulse(const canv::Vec2<float>& imp) -> void
     {
@@ -94,8 +93,13 @@ auto main() -> int
     canvas.setUpdateFunction(
         [&canvas, &system]()
         {
+            canvas.setDrawMode(canv::Canvas::DrawMode::Fill);
             std::for_each(system.begin(), system.end(),
                           [&](ParticlePtr& el) { el->Update(canvas, system); });
+            canvas.setFillColor(canv::Colors::red);
+
+            canvas.setDrawMode(canv::Canvas::DrawMode::Outline);
+            canvas.drawRectangle(100+(50.F*rand()/RAND_MAX), 100, 30, 50);
         });
     canvas.start();
 

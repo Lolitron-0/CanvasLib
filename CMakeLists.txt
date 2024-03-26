@@ -16,7 +16,6 @@ add_library(
     source/Color.cpp
     source/Colors.cpp
     source/CanvasLib.cpp
-	source/Window.cpp
 )
 
 add_library(CanvasLib::CanvasLib ALIAS ${CMAKE_PROJECT_NAME})
