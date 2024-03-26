@@ -53,9 +53,10 @@ public:
     void start();
     /**
      * @brief sets update function that will be called every frame
-     * @param upd function with void(void) signature (or lambda)
+     * @param upd function (or lambda) with void(double) signature double
+     * parameter is fps scale factor
      */
-    void setUpdateFunction(std::function<void(void)> upd);
+    void setUpdateFunction(std::function<void(double)> upd);
 
     /**
      * @brief draws a rectangle with specified coordinates and size
@@ -78,18 +79,27 @@ public:
      */
     void setDrawMode(const DrawMode& drawMode);
 
+    static void EnableStats();
+    static void DisableStats();
+
 private:
     [[nodiscard]] auto _xToGl(float x) const -> float;
     [[nodiscard]] auto _yToGl(float y) const -> float;
     [[nodiscard]] auto _normalizeSizeGl(const Vec2f& size) const -> Vec2f;
 
+    static bool s_ShouldRenderTui;
+    static std::unique_ptr<std::thread> s_TuiRenderThread;
+    static void renderTUI();
+
     void applyColorGl() const;
 
     std::unique_ptr<Ra::Window> m_Window;
-    std::function<void(void)> m_UpdateFunction;
+    std::function<void(double)> m_UpdateFunction;
     Color m_FillColor;
     GLenum m_DrawMode;
     Vec2<uint32_t> m_Size;
+    glm::mat4 m_Projection;
+    double m_LastFrameTime;
 };
 
 } // namespace canv

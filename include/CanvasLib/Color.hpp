@@ -1,6 +1,7 @@
 #ifndef CANVAS_COLOR_HPP
 #define CANVAS_COLOR_HPP
 
+#include <RenderAbstraction.hpp>
 #include <cstdint>
 #include <limits>
 
@@ -18,11 +19,15 @@ public:
      */
     Color() = default;
 
+    /* implicit */ Color(const glm::vec4& glmColor); // NOLINT
+
     /**
      * @brief creates color using 0.255 values
      */
     Color(uint8_t, uint8_t, uint8_t,
           uint8_t a = std::numeric_limits<uint8_t>::max()) noexcept;
+
+    /* implicit */ operator glm::vec4() const;
 
     uint8_t R{ 0 };
     uint8_t G{ 0 };
