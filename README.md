@@ -2,7 +2,6 @@
 
 CanvasLib is a tiny c++ GLFW 2d graphics library for fast prototyping of some simulations/games/whatever. Inspired by JS canvas.
 
-
 ## Basic usage example
 ```cpp
 #include <CanvasLib/CanvasLib.hpp>
@@ -20,6 +19,13 @@ auto main() -> int
 }
 ```
 ## Building with CMake
+### Dependencies
+The only dependency is `glfw` library. You can install it via your favorite package manager. For exmple:
+ * `sudo apt-get install libglfw3 libglfw3-dev` \
+
+Or use Nix flakes. \
+
+### Adding to your project:
 ```cmake
 include(FetchContent)
 FetchContent_Declare(CanvasLib
