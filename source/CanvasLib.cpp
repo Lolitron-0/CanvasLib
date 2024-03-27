@@ -11,14 +11,23 @@
 namespace canv
 {
 
-bool Canvas::s_ShouldRenderTui{ true };
-std::unique_ptr<std::thread> Canvas::s_TuiRenderThread{ nullptr };
+bool Canvas::s_ShouldRenderWatches{ true };
+std::unique_ptr<std::thread> Canvas::s_WatchesRenderThread{ nullptr };
+std::mutex Canvas::s_CustomWatchesMutex{};
+std::unordered_map<std::string, std::string> Canvas::s_CustomWatches{};
 
 Canvas::Canvas(uint32_t width, uint32_t height)
     : m_Size(width, height),
       m_FillColor(255, 255, 255),
-      m_DrawMode(GL_TRIANGLE_FAN)
+      m_DrawMode(Ra::RendererAPI::DrawMode::Triangles)
 {
+    static bool instanceCreated{ false };
+    if (instanceCreated)
+    {
+        std::cout << "Only one Canvas object is allowed" << std::endl;
+        std::abort();
+    }
+
     PROFILER_BEGIN_SESSION("CanvasLib session",
                            "ProfilingResult-CanvasLib.json");
     Ra::SetErrorCallback([](const auto& msg)
@@ -40,39 +49,41 @@ Canvas::Canvas(uint32_t width, uint32_t height)
 
     setUpdateFunction([](double) {});
 
-    // Ra::Renderer2D::ResizeViewport(
-    //     { m_Window->GetWidth(), m_Window->GetHeight() });
+    instanceCreated = true;
 }
 
 void Canvas::start()
 {
     PROFILER_SCOPE("Main cycle");
 
-    s_TuiRenderThread = std::make_unique<std::thread>(
+    s_WatchesRenderThread = std::make_unique<std::thread>(
         [this]()
         {
-            while (s_ShouldRenderTui)
+            while (s_ShouldRenderWatches)
             {
-                renderTUI();
+                renderWatches();
                 std::this_thread::sleep_for(std::chrono::milliseconds{ 1000 });
             }
         });
 
     while (!m_Window->ShouldClose())
     {
-		auto currentTime{glfwGetTime()};
+        double fpsScale{};
+        auto currentTime{ glfwGetTime() };
         auto deltaTime{ currentTime - m_LastFrameTime };
-		auto fpsScale{1.0 - glm::pow(0.95, deltaTime) };
-		m_LastFrameTime = currentTime;
+        fpsScale = (1.0 - glm::pow(0.95, deltaTime)) *
+                   1e2; // coeff to scale velocity numbers
+        m_LastFrameTime = currentTime;
 
-        glClearColor(0, 0, 0, 0);
-        glClear(GL_COLOR_BUFFER_BIT);
+        Ra::RenderCommand::SetClearColor({ 0, 0, 0, 1 });
+        Ra::RenderCommand::Clear();
 
         Ra::Renderer2D::BeginScene(m_Projection);
-        m_UpdateFunction(fpsScale);
+        {
+            PROFILER_SCOPE("Canvas - custom update")
+            m_UpdateFunction(fpsScale);
+        }
 
-        // Ra::Renderer2D::DrawQuad({ 100, 200 }, { 100, 300 }, { 1.0, 0, 0, 1
-        // });
         Ra::Renderer2D::EndScene();
         m_Window->OnUpdate();
         glfwPollEvents();
@@ -91,29 +102,29 @@ void Canvas::drawRectangle(float x, float y, float w, float h)
 
 void Canvas::drawEllipse(float cx, float cy, float rx, float ry, int segments)
 {
-    cx = _xToGl(cx);
-    cy = _yToGl(cy);
-    std::tie(rx, ry) = _normalizeSizeGl({ rx, ry }).AsTuple();
-
-    float theta = 2 * 3.1415926F / static_cast<float>(segments);
-    float c = cosf(theta);
-    float s = sinf(theta);
-    float t{};
-
-    float x = 1; // we start at angle = 0
-    float y = 0;
-
-    applyColorGl();
-    glBegin(m_DrawMode);
-    for (int i = 0; i < segments; i++)
-    {
-        glVertex2f(x * rx + cx, y * ry + cy);
-
-        t = x;
-        x = c * x - s * y;
-        y = s * t + c * y;
-    }
-    glEnd();
+    // cx = _xToGl(cx);
+    // cy = _yToGl(cy);
+    // std::tie(rx, ry) = _normalizeSizeGl({ rx, ry }).AsTuple();
+    //
+    // float theta = 2 * 3.1415926F / static_cast<float>(segments);
+    // float c = cosf(theta);
+    // float s = sinf(theta);
+    // float t{};
+    //
+    // float x = 1; // we start at angle = 0
+    // float y = 0;
+    //
+    // applyColorGl();
+    // glBegin(m_DrawMode);
+    // for (int i = 0; i < segments; i++)
+    // {
+    //     glVertex2f(x * rx + cx, y * ry + cy);
+    //
+    //     t = x;
+    //     x = c * x - s * y;
+    //     y = s * t + c * y;
+    // }
+    // glEnd();
 }
 
 void Canvas::setFillColor(const Color& color)
@@ -126,10 +137,10 @@ void Canvas::setDrawMode(const DrawMode& drawMode)
     switch (drawMode)
     {
     case DrawMode::Fill:
-        m_DrawMode = GL_TRIANGLE_FAN;
+        m_DrawMode = Ra::RendererAPI::DrawMode::Triangles;
         break;
     case DrawMode::Outline:
-        m_DrawMode = GL_LINE_LOOP;
+        m_DrawMode = Ra::RendererAPI::DrawMode::LineLoop;
         break;
     default:
         break;
@@ -138,8 +149,8 @@ void Canvas::setDrawMode(const DrawMode& drawMode)
 
 Canvas::~Canvas()
 {
-    s_ShouldRenderTui = false;
-    s_TuiRenderThread->join();
+    s_ShouldRenderWatches = false;
+    s_WatchesRenderThread->join();
     m_Window.reset(nullptr);
     glfwTerminate();
     PROFILER_END_SESSION();
@@ -165,7 +176,7 @@ void Canvas::applyColorGl() const
     glColor4ub(m_FillColor.R, m_FillColor.G, m_FillColor.B, m_FillColor.A);
 }
 
-void Canvas::renderTUI()
+void Canvas::renderWatches()
 {
     using namespace ftxui;
     static std::string resetPosition{};
@@ -173,12 +184,18 @@ void Canvas::renderTUI()
     PROFILER_SCOPE("Canvas::renderTUI");
 
     auto stats{ Ra::Renderer2D::GetStats() };
-    auto table{ Table({
+    std::vector<std::vector<std::string>> tableData{ {
         { "FPS", std::to_string(
                      static_cast<int32_t>(std::round(stats.ScenesPerSecond))) },
         { "Draw calls", std::to_string(stats.DrawCalls) },
         { "Num indices", std::to_string(stats.Indices) },
-    }) };
+    } };
+    for (const auto& it : s_CustomWatches)
+    {
+        tableData.push_back({ it.first, it.second });
+    }
+
+    auto table{ Table{ tableData } };
 
     table.SelectColumn(0).Decorate(bold);
 
@@ -211,13 +228,25 @@ void Canvas::renderTUI()
     resetPosition = screen.ResetPosition();
 }
 
-void Canvas::DisableStats()
+void Canvas::disableWatches()
 {
-    s_ShouldRenderTui = false;
+    s_ShouldRenderWatches = false;
 }
 
-void Canvas::EnableStats()
+void Canvas::enableWatches()
 {
-    s_ShouldRenderTui = true;
+    s_ShouldRenderWatches = true;
 }
+
+void Canvas::setWatch(const std::string& key, const std::string& value)
+{
+    std::lock_guard lock{ s_CustomWatchesMutex };
+    s_CustomWatches[key] = value;
+}
+
+void Canvas::removeWatch(const std::string& key)
+{
+    s_CustomWatches.erase(key);
+}
+
 } // namespace canv

@@ -14,7 +14,30 @@
 #define CANVASLIB_EXPORT
 
 /**
- * The main namespace of the library (to keep my Vec2/Color away from your
+ * @mainpage CanvasLib
+ * This is a 2D rendering library for fast protoryping (or just playing around)
+inspired by JavaScript canvas. It runs on OpenGL (Ra library to be exact). For
+now CanvasLib only supports one instance of canvas (one window).
+ * Here is a basic usage example:
+ * @code{.cpp}
+ * #include <CanvasLib/CanvasLib.hpp>
+ *
+ * auto main() -> int
+ * {
+ *     canv::Canvas canvas{ 1000, 800 };
+ *     canvas.setUpdateFunction(
+ *         [&canvas](double fpsScale)
+ *         {
+ *             canvas.setFillColor(canv::Colors::green);
+ *             canvas.drawRectangle(100, 100, 50, 150);
+ *         });
+ *     canvas.start();
+ * }
+ * @endcode
+*/
+
+/**
+ * Main namespace of the library (to keep my Vec2/Color away from your
  * Vec2/Color)
  */
 namespace canv
@@ -26,11 +49,12 @@ namespace canv
  * - create Canvas object
  * - specify update function (setUpdateFunction() method)
  * - call start() method
+ * @note There can only be one Canvas object
  */
 class CANVASLIB_EXPORT Canvas
 {
 public:
-    enum class CANVASLIB_EXPORT DrawMode
+    enum class DrawMode
     {
         Fill,
         Outline
@@ -53,7 +77,7 @@ public:
     void start();
     /**
      * @brief sets update function that will be called every frame
-     * @param upd function (or lambda) with void(double) signature double
+     * @param upd function (or lambda) with void(double) signature. Double
      * parameter is fps scale factor
      */
     void setUpdateFunction(std::function<void(double)> upd);
@@ -79,24 +103,44 @@ public:
      */
     void setDrawMode(const DrawMode& drawMode);
 
-    static void EnableStats();
-    static void DisableStats();
+    /**
+     * @brief Enables rendering watches in  terminal
+     */
+    static void enableWatches();
+    /**
+     * @brief Disables rendering watches in  terminal
+     */
+    static void disableWatches();
+    /**
+     * @brief Adds or updates entry in watches table
+	 *
+     * Watches allow you to add rows to the table in terminal interface (one that contains
+     * rendering statistics by default)
+     */
+    static void setWatch(const std::string& key, const std::string& value);
+    /**
+     * @brief Removes entry from watches table, does nothing if it doesn't exist
+	 * @note Default entries can't be deleted
+     */
+    static void removeWatch(const std::string& key);
 
 private:
     [[nodiscard]] auto _xToGl(float x) const -> float;
     [[nodiscard]] auto _yToGl(float y) const -> float;
     [[nodiscard]] auto _normalizeSizeGl(const Vec2f& size) const -> Vec2f;
 
-    static bool s_ShouldRenderTui;
-    static std::unique_ptr<std::thread> s_TuiRenderThread;
-    static void renderTUI();
+    static void renderWatches();
+    static bool s_ShouldRenderWatches;
+    static std::unique_ptr<std::thread> s_WatchesRenderThread;
+    static std::mutex s_CustomWatchesMutex;
+    static std::unordered_map<std::string, std::string> s_CustomWatches;
 
     void applyColorGl() const;
 
     std::unique_ptr<Ra::Window> m_Window;
     std::function<void(double)> m_UpdateFunction;
     Color m_FillColor;
-    GLenum m_DrawMode;
+    Ra::RendererAPI::DrawMode m_DrawMode;
     Vec2<uint32_t> m_Size;
     glm::mat4 m_Projection;
     double m_LastFrameTime;
