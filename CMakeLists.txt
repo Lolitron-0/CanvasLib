@@ -18,10 +18,10 @@ add_library(
     source/CanvasLib.cpp
 )
 
-add_library(CanvasLib::CanvasLib ALIAS ${CMAKE_PROJECT_NAME})
+add_library(CanvasLib::CanvasLib ALIAS ${PROJECT_NAME})
 
 target_include_directories(
-    ${CMAKE_PROJECT_NAME} ${warning_guard}
+    ${PROJECT_NAME} ${warning_guard}
     PUBLIC
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
 )
@@ -29,7 +29,7 @@ target_include_directories(
 include_directories(thirdparty/RenderingAbstraction/include)
 
 add_subdirectory(thirdparty/RenderingAbstraction)
-target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC RenderingAbstraction)
+target_link_libraries(${PROJECT_NAME} PUBLIC RenderingAbstraction)
 
 
 include(FetchContent)
@@ -45,7 +45,7 @@ if(NOT ftxui_POPULATED)
   add_subdirectory(${ftxui_SOURCE_DIR} ${ftxui_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
-target_link_libraries(${CMAKE_PROJECT_NAME} 
+target_link_libraries(${PROJECT_NAME} 
 	PRIVATE ftxui::screen
 	PRIVATE ftxui::dom
 )

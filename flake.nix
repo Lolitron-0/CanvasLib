@@ -1,5 +1,5 @@
 {
-  description = "C++ Development with Nix in 2023";
+  description = "CanvasLib build env";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
