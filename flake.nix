@@ -18,9 +18,6 @@
           packages = with pkgs; [
             glfw
             cmake
-			pkg-config
-			kdePackages.wayland
-			wayland-utils
           ];
         };
       };
