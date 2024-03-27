@@ -19,6 +19,17 @@ auto main() -> int
     canvas.start();
 }
 ```
+## Building with CMake
+```cmake
+include(FetchContent)
+FetchContent_Declare(CanvasLib
+    GIT_REPOSITORY "https://github.com/Lolitron-0/CanvasLib"
+    GIT_TAG "origin/master"
+)
+FetchContent_MakeAvailable(CanvasLib)
+
+target_link_libraries(foobarbaz PUBLIC CanvasLib)
+```
 
 ## Docs
 Doxygen documentation is available [here](https://lolitron-0.github.io/CanvasLib/html/).
