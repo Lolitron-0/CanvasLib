@@ -11,7 +11,7 @@ project(
 # ---- Declare library ----
 
 add_library(
-    ${CMAKE_PROJECT_NAME}
+    ${PROJECT_NAME}
 	STATIC
     source/Color.cpp
     source/Colors.cpp
