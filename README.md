@@ -21,4 +21,4 @@ auto main() -> int
 ```
 
 ## Docs
-Open index.html in docs/docs/html directory in browser.
+Doxygen documentation is available [here](https://lolitron-0.github.io/CanvasLib/html/).
