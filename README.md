@@ -21,9 +21,10 @@ auto main() -> int
 ## Building with CMake
 ### Dependencies
 The only dependency is `glfw` library. You can install it via your favorite package manager. For exmple:
- * `sudo apt-get install libglfw3 libglfw3-dev` \
+ * `sudo apt-get install libglfw3 libglfw3-dev` 
 
-Or use Nix flakes. \
+Or use Nix flakes. 
+
 
 ### Adding to your project:
 ```cmake
