@@ -2689,145 +2689,145 @@
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/animation.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/animation.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/animation.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/animation.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/animation.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/animation.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/button.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/button.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/button.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/button.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/button.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/button.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/catch_event.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/catch_event.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/catch_event.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/catch_event.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/catch_event.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/catch_event.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/checkbox.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/checkbox.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/checkbox.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/checkbox.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/checkbox.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/checkbox.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/collapsible.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/collapsible.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/collapsible.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/collapsible.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/collapsible.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/collapsible.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/component.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/component.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/component.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component_options.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/component_options.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component_options.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/component_options.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/component_options.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component_options.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/container.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/container.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/container.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/container.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/container.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/container.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/dropdown.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/dropdown.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/dropdown.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/dropdown.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/dropdown.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/dropdown.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/event.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/event.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/event.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/event.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/event.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/event.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/hoverable.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/hoverable.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/hoverable.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/hoverable.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/hoverable.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/hoverable.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/input.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/input.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/input.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/input.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/input.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/input.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/loop.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/loop.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/loop.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/loop.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/loop.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/loop.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/maybe.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/maybe.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/maybe.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/maybe.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/maybe.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/maybe.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/menu.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/menu.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/menu.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/menu.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/menu.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/menu.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/modal.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/modal.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/modal.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/modal.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/modal.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/modal.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/radiobox.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/radiobox.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/radiobox.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/radiobox.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/radiobox.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/radiobox.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/renderer.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/renderer.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/renderer.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/renderer.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/renderer.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/renderer.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/resizable_split.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/resizable_split.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/resizable_split.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/resizable_split.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/resizable_split.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/resizable_split.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/screen_interactive.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/screen_interactive.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/screen_interactive.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/screen_interactive.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/screen_interactive.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/screen_interactive.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/slider.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/slider.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/slider.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/slider.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/slider.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/slider.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/terminal_input_parser.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/terminal_input_parser.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/terminal_input_parser.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/terminal_input_parser.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/terminal_input_parser.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/terminal_input_parser.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/util.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/util.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/util.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/util.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/util.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/util.cpp.o"
 },
 {
   "directory": "/home/niten/dev/CanvasLib/build",
-  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/window.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/window.cpp",
+  "command": "/run/current-system/sw/bin/clang++ -Dcomponent_EXPORTS -I/home/niten/dev/CanvasLib/thirdparty/RenderingAbstraction/include -I/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src -isystem /home/niten/dev/CanvasLib/build/_deps/ftxui-src/include -g -fPIC -pthread -o _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/window.cpp.o -c /home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/window.cpp",
   "file": "/home/niten/dev/CanvasLib/build/_deps/ftxui-src/src/ftxui/component/window.cpp",
   "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/window.cpp.o"
 },

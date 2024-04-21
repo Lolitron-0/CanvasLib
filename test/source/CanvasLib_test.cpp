@@ -69,50 +69,48 @@ private:
 
 const auto seed{ time(nullptr) };
 
-// auto main() -> int
-// {
-//     srand(seed);
-//
-//     canv::Canvas canvas{ 1000, 800 };
-//     ParticleSystem system;
-//
-//     system.push_back(std::make_shared<Particle>(canv::Colors::lightBlue, 1,
-//                                                 canv::Vec2<float>(500, 10)));
-//     system.back()->ApplyImpulse({ 60, 0 });
-//     system.push_back(std::make_shared<Particle>(canv::Colors::green, 0.1,
-//                                                 canv::Vec2<float>(600,
-//                                                 300)));
-//     system.back()->ApplyImpulse({ 30, 30 });
-//     system.push_back(std::make_shared<Particle>(canv::Colors::red, 2,
-//                                                 canv::Vec2<float>(350,
-//                                                 550)));
-//     system.back()->ApplyImpulse({ -50, 0 });
-//     system.push_back(std::make_shared<Particle>(canv::Colors::white, 10,
-//                                                 canv::Vec2<float>(500,
-//                                                 500)));
-//     system.back()->ApplyImpulse({ 80, 0 });
-//     system.push_back(std::make_shared<Particle>(canv::Colors::blue, 6,
-//                                                 canv::Vec2<float>(400,
-//                                                 400)));
-//     system.back()->ApplyImpulse({ 0, 125 });
-//     system.push_back(std::make_shared<Particle>(canv::Colors::grey, 100000,
-//                                                 canv::Vec2<float>(500,
-//                                                 400)));
-//     canvas.setUpdateFunction(
-//         [&canvas, &system](double fpsScale)
-//         {
-//             canvas.setDrawMode(canv::Canvas::DrawMode::Fill);
-//             std::for_each(system.begin(), system.end(),
-//                           [&](ParticlePtr& el)
-//                           { el->Update(canvas, system, fpsScale); });
-//             canvas.setFillColor(canv::Colors::red);
-//
-//             canvas.setDrawMode(canv::Canvas::DrawMode::Outline);
-//             canvas.drawRectangle(100 + (50.F * rand() / RAND_MAX), 100, 30,
-//             50);
-//         });
-//
-//     canvas.start();
-//
-//     return 0;
-// }
+auto main() -> int
+{
+    srand(seed);
+
+    canv::Canvas canvas{ 1000, 800 };
+    ParticleSystem system;
+
+    system.push_back(std::make_shared<Particle>(canv::Colors::lightBlue, 1,
+                                                canv::Vec2<float>(500, 10)));
+    system.back()->ApplyImpulse({ 60, 0 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::green, 0.1,
+                                                canv::Vec2<float>(600,
+                                                300)));
+    system.back()->ApplyImpulse({ 30, 30 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::red, 2,
+                                                canv::Vec2<float>(350,
+                                                550)));
+    system.back()->ApplyImpulse({ -50, 0 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::white, 10,
+                                                canv::Vec2<float>(500,
+                                                500)));
+    system.back()->ApplyImpulse({ 80, 0 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::blue, 6,
+                                                canv::Vec2<float>(400,
+                                                400)));
+    system.back()->ApplyImpulse({ 0, 125 });
+    system.push_back(std::make_shared<Particle>(canv::Colors::grey, 100000,
+                                                canv::Vec2<float>(500,
+                                                400)));
+    canvas.setUpdateFunction(
+        [&canvas, &system](double fpsScale)
+        {
+            std::for_each(system.begin(), system.end(),
+                          [&](ParticlePtr& el)
+                          { el->Update(canvas, system, fpsScale); });
+            canvas.setFillColor(canv::Colors::red);
+
+            canvas.drawRectangle(100 + (50.F * rand() / RAND_MAX), 100, 30,
+            50);
+        });
+
+    canvas.start();
+
+    return 0;
+}

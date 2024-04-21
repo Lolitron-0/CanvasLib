@@ -99,11 +99,6 @@ public:
     void setFillColor(const Color& color);
 
     /**
-     * @brief sets draw mode from Canvas::DrawMode enum
-     */
-    void setDrawMode(const DrawMode& drawMode);
-
-    /**
      * @brief Enables rendering watches in  terminal
      */
     static void enableWatches();
@@ -140,7 +135,6 @@ private:
     std::unique_ptr<Ra::Window> m_Window;
     std::function<void(double)> m_UpdateFunction;
     Color m_FillColor;
-    Ra::RendererAPI::DrawMode m_DrawMode;
     Vec2<uint32_t> m_Size;
     glm::mat4 m_Projection;
     double m_LastFrameTime;

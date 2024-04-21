@@ -18,8 +18,7 @@ std::unordered_map<std::string, std::string> Canvas::s_CustomWatches{};
 
 Canvas::Canvas(uint32_t width, uint32_t height)
     : m_Size(width, height),
-      m_FillColor(255, 255, 255),
-      m_DrawMode(Ra::RendererAPI::DrawMode::Triangles)
+      m_FillColor(255, 255, 255)
 {
     static bool instanceCreated{ false };
     if (instanceCreated)
@@ -102,6 +101,8 @@ void Canvas::drawRectangle(float x, float y, float w, float h)
 
 void Canvas::drawEllipse(float cx, float cy, float rx, float ry, int segments)
 {
+	throw std::logic_error{"not implemented"};
+
     // cx = _xToGl(cx);
     // cy = _yToGl(cy);
     // std::tie(rx, ry) = _normalizeSizeGl({ rx, ry }).AsTuple();
@@ -115,7 +116,6 @@ void Canvas::drawEllipse(float cx, float cy, float rx, float ry, int segments)
     // float y = 0;
     //
     // applyColorGl();
-    // glBegin(m_DrawMode);
     // for (int i = 0; i < segments; i++)
     // {
     //     glVertex2f(x * rx + cx, y * ry + cy);
@@ -130,21 +130,6 @@ void Canvas::drawEllipse(float cx, float cy, float rx, float ry, int segments)
 void Canvas::setFillColor(const Color& color)
 {
     m_FillColor = color;
-}
-
-void Canvas::setDrawMode(const DrawMode& drawMode)
-{
-    switch (drawMode)
-    {
-    case DrawMode::Fill:
-        m_DrawMode = Ra::RendererAPI::DrawMode::Triangles;
-        break;
-    case DrawMode::Outline:
-        m_DrawMode = Ra::RendererAPI::DrawMode::LineLoop;
-        break;
-    default:
-        break;
-    }
 }
 
 Canvas::~Canvas()
